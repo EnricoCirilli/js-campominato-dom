@@ -1,22 +1,41 @@
-//
+
 document.getElementById("play-btn").addEventListener("click", startGame);
 
-//let clickedCells = [];
 // Funzuone principale del gioco
 function startGame() {
-const level = document.getElementById("level").value;
-    //console.log(level);
-//aggiungo al title classe hidden
+    const level = document.getElementById("level").value;
+    console.log(level);
+
+    let gridSize;
+    switch (level) {
+        case "1" :
+            gridSize = 100;
+            break;
+        case "2":
+            gridSize = 81;
+            break;
+        case "3":
+            gridSize = 49;
+            break;
+        default:
+            gridSize = 100;
+            break;
+    }
+
+
+
+
+    //aggiungo al title classe hidden
     document.getElementById("title").classList.add("hidden");
-//rimuoviamo griglia nascosta
+    //rimuoviamo griglia nascosta
     const gridElem = document.getElementById("grid");
     gridElem.innerHTML = "";
     gridElem.classList.remove("hidden");
 
-    for (let i = 1; i <= 100; i++) {
+    for (let i = 1; i <= gridSize; i++) {
         const newCell = createGridCell(i);
         newCell.addEventListener("click", handleCellClick);
-       gridElem.append(newCell);
+        gridElem.append(newCell);
     }
 }
 
