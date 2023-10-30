@@ -34,7 +34,7 @@ img{
 .square{
     width: calc(100% / 10);
     height: calc(100% / 10);
-   
+   background-color: yellow;
     display: flex;
     justify-content: center;
     align-items: center;
